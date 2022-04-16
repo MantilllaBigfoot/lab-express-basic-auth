@@ -1,13 +1,24 @@
-<!DOCTYPE html>
 <html>
 
-<head>
-  <title>Lab Express Basic Authentication</title>
-  <link rel='stylesheet' href='/styles/style.css' />
-</head>
-
-<body>
-  {{{body}}}
-</body>
+  <head>
+    <title>Lab Express Basic Authentication</title>
+    <link rel='stylesheet' href='/styles/style.css' />
+  </head>
+  <nav>
+    <a href='/'>Home</a>
+    {{! Check if user is authentcated }}
+    {{#if user}}
+      <a href='/private'>Private</a>
+      <form action='/logout' method='post'>
+        <button>Logout</button>
+      </form>
+    {{else}}
+      <a href='/login'>Login</a>
+      <a href='/register'>Register</a>
+    {{/if}}
+  </nav>
+  <body>
+    {{{body}}}
+  </body>
 
 </html>
